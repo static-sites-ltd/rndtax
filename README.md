@@ -30,8 +30,37 @@ Deploy the contents of `build/` to any static web host. No Node server is
 required in production. Pages use directory-style URLs (`/about/index.html`),
 so the host only needs standard index-file serving.
 
-For hosting under a subdirectory, configure SvelteKit's `paths.base` in
-`vite.config.ts` before building.
+For hosting under a subdirectory, set `BASE_PATH` when building, for example
+`BASE_PATH=/rndtax npm run build`. It defaults to an empty string for local
+development and root-domain hosting.
+
+## GitHub Pages
+
+Push this directory as the root of a GitHub repository (including
+`.github/workflows/deploy.yml` and `package-lock.json`). In the repository's
+**Settings → Pages → Build and deployment**, select **GitHub Actions** as the
+source. Push to `main`, or run **Deploy to GitHub Pages** manually from the
+Actions tab, to build and deploy the site.
+
+The workflow installs locked dependencies with Node.js 24, runs the Svelte
+checks, builds the site, and deploys `build/`. It reads `BASE_PATH` from GitHub
+Pages metadata, supporting repository URLs, user/organization sites, and
+custom domains without hardcoding the repository name. Configure any custom
+domain in GitHub's Pages settings, then rerun the workflow.
+
+All pages are prerendered with directory-style URLs. A `404.html` fallback
+handles unknown routes. No deployment secrets or separate `gh-pages` branch
+are required; the workflow uses GitHub's built-in token.
+
+To check a repository-style build locally:
+
+```sh
+BASE_PATH=/rndtax npm run build
+BASE_PATH=/rndtax npm run preview
+```
+
+Open the preview at `/rndtax/`. To return to a root-path build, run
+`npm run build` again without `BASE_PATH`.
 
 ## Brand and photography
 
