@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/state';
 	import { resolve } from '$app/paths';
-	import logo from '../../rd-tax-solutions-mark.svg';
+	import logo from '#lib/assets/rd-tax-solutions-mark.svg';
 	import '../app.css';
 	import type { LayoutProps } from './$types';
 
@@ -24,7 +24,7 @@
 <div class="site">
 	<header class="site-header container">
 		<a class="brand" href={resolve('/')} aria-label="R&D Tax Solutions home">
-			<img src={logo} alt="" width="56" height="56" />
+			<img src={logo} alt="" width="65" height="65" />
 			<span>Tax Solutions<small>SR&amp;ED TAX CONSULTANTS</small></span>
 		</a>
 		<nav aria-label="Main navigation">

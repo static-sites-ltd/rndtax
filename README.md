@@ -36,7 +36,7 @@ For hosting under a subdirectory, configure SvelteKit's `paths.base` in
 ## Brand and photography
 
 Global styles are in `src/app.css`. The header uses the supplied
-`rd-tax-solutions-mark.svg`; the palette follows its navy and blue tones.
+`src/lib/assets/rd-tax-solutions-mark.svg`; the palette follows its navy and blue tones.
 
 The homepage architectural photograph is by Patrick Tomasso on
 [Unsplash](https://unsplash.com/photos/low-angle-photography-curtain-wall-buildings-gMes5dNykus),
